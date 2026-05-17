@@ -11,8 +11,26 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Clean and build allowed origins array dynamically
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:3000'];
+const rawFrontendUrl = process.env.FRONTEND_URL;
+if (rawFrontendUrl) {
+  rawFrontendUrl.split(',').forEach(url => {
+    const trimmed = url.trim();
+    if (trimmed) {
+      try {
+        // Extract strictly the origin (e.g. 'https://domain.com' from 'https://domain.com/login')
+        allowedOrigins.push(new URL(trimmed).origin);
+      } catch {
+        // Fallback for relative or malformed URLs (strip trailing slash)
+        allowedOrigins.push(trimmed.replace(/\/$/, ''));
+      }
+    }
+  });
+}
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use(express.json({ limit: '50mb' }));
