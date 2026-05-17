@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Story - Open When...</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Inter:wght@400;500&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Parisienne&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#8c7979",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#c8c6c5",
+                        "on-surface": "#eae1d6",
+                        "secondary": "#c9c6c0",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary": "#d8c1c1",
+                        "surface-container-highest": "#39342d",
+                        "on-secondary-fixed-variant": "#484743",
+                        "secondary-container": "#4a4945",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-background": "#eae1d6",
+                        "surface-container": "#231f18",
+                        "on-primary": "#313030",
+                        "tertiary-fixed": "#f5dddc",
+                        "surface-variant": "#39342d",
+                        "on-secondary-container": "#bbb8b2",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary": "#31302d",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-fixed-variant": "#534343",
+                        "surface-container-low": "#1f1b14",
+                        "on-tertiary-fixed": "#251818",
+                        "on-surface-variant": "#c4c7c7",
+                        "inverse-on-surface": "#343028",
+                        "tertiary-fixed-dim": "#d8c1c1",
+                        "tertiary-container": "#1b0f0f",
+                        "inverse-primary": "#5f5e5e",
+                        "surface-dim": "#16130d",
+                        "primary": "#c8c6c5",
+                        "on-primary-container": "#7e7d7d",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#1c1c18",
+                        "surface-container-lowest": "#110e08",
+                        "outline": "#8e9192",
+                        "surface-container-high": "#2e2922",
+                        "on-tertiary": "#3b2d2d",
+                        "surface-bright": "#3d3931",
+                        "secondary-fixed-dim": "#c9c6c0",
+                        "error-container": "#93000a",
+                        "background": "#16130d",
+                        "surface": "#16130d",
+                        "primary-container": "#121212",
+                        "secondary-fixed": "#e6e2dc",
+                        "outline-variant": "#444748",
+                        "on-error": "#690005",
+                        "inverse-surface": "#eae1d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "5vw",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "4rem",
+                        "gutter-editorial": "2rem",
+                        "stack-xl": "8rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Libre Baskerville"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "display-editorial": ["Bodoni Moda"],
+                        "accent-script": ["Parisienne"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "180%", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "120%", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "160%", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "100%", "letterSpacing": "0.2em", "fontWeight": "500" }],
+                        "headline-lg": ["64px", { "lineHeight": "120%", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "display-editorial": ["120px", { "lineHeight": "110%", "letterSpacing": "-0.03em", "fontWeight": "300" }],
+                        "accent-script": ["32px", { "lineHeight": "100%", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.05;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+        .light-leak {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 40;
+            background: radial-gradient(circle at 10% 10%, rgba(214, 184, 168, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 90%, rgba(214, 184, 168, 0.05) 0%, transparent 40%);
+        }
+        .paper-texture {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-surface-tint selection:text-surface-container overflow-x-hidden">
+<div class="noise-overlay"></div>
+<div class="light-leak"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/5 border-none shadow-none px-margin-page py-6">
+<div class="flex justify-between items-center w-full max-w-full">
+<div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tighter">
+                Open When...
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary border-b border-primary pb-1 transition-all duration-500 font-label-caps text-label-caps" href="#">The Story</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out font-label-caps text-label-caps" href="#">Our Letters</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out font-label-caps text-label-caps" href="#">Memories</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out font-label-caps text-label-caps" href="#">Write New</a>
+</div>
+<button class="text-primary hover:text-primary transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="w-full relative z-10">
+<!-- 1. Cinematic Hero -->
+<section class="h-screen w-full relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-surface">
+<img alt="Cinematic Hero B&amp;W Couple" class="w-full h-full object-cover opacity-60 grayscale scale-105 transition-transform duration-[20s] ease-out hover:scale-110" data-alt="A cinematic, high-contrast black and white photograph of a loving couple in a gentle embrace, faces partially obscured by soft shadows. The lighting is moody and intimate, with heavy film grain evoking a vintage, deeply emotional scrapbook aesthetic. The scene captures a raw, authentic moment of connection against a slightly blurred, romantic backdrop. The atmosphere is quiet, luxurious, and profoundly nostalgic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoiG_XNh7HK-Q_XVRucCB2s1GS5_gVYJIfj7O-Mr531xKIN4dVN_4aaracP86Cxx6I7Lf4MPJbaURG_zoX78h1aU0ekRhfMrtuLNt9prveO7jFQF0rutmWUYR0FUEqp_3J8wIufkoiUll5bM1bgAyxUoBE9vBVxF823l0AyGGePMe7dfTSxwUY7_jLx50RyFLMqvA1IppLvY76oKfJaaHqmqNzlHcImnnWeEGMa-_HA47suEizNEcSZzqM_0cEMC2X9tMm3juxRAE"/>
+</div>
+<div class="relative z-10 text-center flex flex-col items-center">
+<h1 class="font-display-editorial text-display-editorial text-on-surface mix-blend-overlay opacity-90 tracking-tighter">Our Story</h1>
+<p class="font-accent-script text-accent-script text-tertiary mt-[-2rem] ml-12 rotate-[-5deg]">every little moment led us here</p>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-on-surface-variant opacity-60">
+<span class="font-label-caps text-label-caps">Scroll to discover</span>
+<div class="w-[1px] h-16 bg-gradient-to-b from-on-surface-variant to-transparent"></div>
+</div>
+</section>
+<!-- 2. Intro Memory Block -->
+<section class="min-h-screen py-stack-xl px-margin-page flex items-center">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-editorial items-center relative w-full">
+<div class="md:col-span-5 md:col-start-2 relative z-10 order-2 md:order-1 mt-stack-lg md:mt-0">
+<div class="bg-surface-container-high p-8 rounded-lg shadow-[0_40px_80px_rgba(0,0,0,0.3)] rotate-[-2deg] max-w-sm ml-auto relative">
+<div class="paper-texture"></div>
+<p class="font-accent-script text-accent-script text-on-surface leading-relaxed text-center">
+                            "I didn't know one person could slowly become my favorite place."
+                        </p>
+</div>
+</div>
+<div class="md:col-span-6 order-1 md:order-2">
+<div class="aspect-[3/4] w-full overflow-hidden relative">
+<img alt="Intro Memory Block B&amp;W" class="w-full h-full object-cover grayscale opacity-80" data-alt="A moody, high-contrast black and white editorial photograph of two hands gently intertwined resting on a textured surface. The lighting is soft and directional, highlighting the contours of the skin and creating deep, evocative shadows. Heavy film grain and subtle imperfections mimic a physical vintage print in a luxury scrapbook. The mood is intimate, tender, and deeply emotional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqx2AbHlqWpOiiRNS_RDhGdTv1IPgkqHDCNPVwsvZSipIeerOoDTGIcbVb1sxDG3w8-AeazXQbtE2jxTIFxiVIaoHc1O87aOAUxRe8UKD15XK3fHFnO56-G0eD01dm8RJG1V-V20Se2SoByRjjlZB0rR7Pke6h9G7ZWvV6jAEqnLqWTAUL3lfEEsRnr-XSczx-WAX4-4KHFbYTwOEJ8bB9XT1h_cmhqSXm87BRY470vlTmV559KK4J4o3QTEB1BDD8qDRVq-UmRqc"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface border-t border-outline-variant/20 px-margin-page relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="font-accent-script text-accent-script text-primary">
+                Open When...
+            </div>
+<div class="flex flex-wrap gap-6 justify-center">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-300" href="#">Privacy</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-300" href="#">Archive</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-300" href="#">Terms</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="text-secondary font-body-sm text-body-sm text-center md:text-right">
+                © 2024 Open When... A Digital Heirloom.
+            </div>
+</div>
+</footer>
+</body></html>

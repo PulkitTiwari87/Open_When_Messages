@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Open When... Letters</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Inter:wght@100..900&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Parisienne&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#c8c6c5",
+                      "secondary": "#c9c6c0",
+                      "surface-bright": "#3d3931",
+                      "surface-container-lowest": "#110e08",
+                      "on-tertiary-container": "#8c7979",
+                      "on-secondary-fixed": "#1c1c18",
+                      "on-primary-fixed-variant": "#474646",
+                      "secondary-container": "#4a4945",
+                      "tertiary-fixed": "#f5dddc",
+                      "on-primary": "#313030",
+                      "surface-container-highest": "#39342d",
+                      "tertiary-fixed-dim": "#d8c1c1",
+                      "inverse-surface": "#eae1d6",
+                      "outline": "#8e9192",
+                      "on-tertiary-fixed": "#251818",
+                      "surface-container": "#231f18",
+                      "outline-variant": "#444748",
+                      "primary-container": "#121212",
+                      "surface": "#16130d",
+                      "on-tertiary": "#3b2d2d",
+                      "error-container": "#93000a",
+                      "secondary-fixed-dim": "#c9c6c0",
+                      "on-surface": "#eae1d6",
+                      "on-secondary-container": "#bbb8b2",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "secondary-fixed": "#e6e2dc",
+                      "on-background": "#eae1d6",
+                      "tertiary-container": "#1b0f0f",
+                      "on-primary-fixed": "#1c1b1b",
+                      "inverse-primary": "#5f5e5e",
+                      "surface-variant": "#39342d",
+                      "surface-container-high": "#2e2922",
+                      "surface-dim": "#16130d",
+                      "error": "#ffb4ab",
+                      "primary-fixed": "#e5e2e1",
+                      "on-secondary": "#31302d",
+                      "on-primary-container": "#7e7d7d",
+                      "on-secondary-fixed-variant": "#484743",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-low": "#1f1b14",
+                      "inverse-on-surface": "#343028",
+                      "background": "#16130d",
+                      "tertiary": "#d8c1c1",
+                      "on-tertiary-fixed-variant": "#534343",
+                      "primary": "#c8c6c5",
+                      "on-surface-variant": "#c4c7c7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter-editorial": "2rem",
+                      "stack-lg": "4rem",
+                      "margin-page": "5vw",
+                      "stack-sm": "0.5rem",
+                      "stack-md": "1.5rem",
+                      "stack-xl": "8rem"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Bodoni Moda"
+                      ],
+                      "accent-script": [
+                              "Parisienne"
+                      ],
+                      "headline-lg": [
+                              "Bodoni Moda"
+                      ],
+                      "display-editorial": [
+                              "Bodoni Moda"
+                      ],
+                      "body-lg": [
+                              "Libre Baskerville"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "100%",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "120%",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "accent-script": [
+                              "32px",
+                              {
+                                      "lineHeight": "100%",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "120%",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-editorial": [
+                              "120px",
+                              {
+                                      "lineHeight": "110%",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "180%",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "160%",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .light-leak-top-right {
+            position: fixed;
+            top: -10vh;
+            right: -10vw;
+            width: 40vw;
+            height: 40vh;
+            background: radial-gradient(circle, rgba(214, 184, 168, 0.05) 0%, rgba(214, 184, 168, 0) 70%);
+            pointer-events: none;
+            z-index: 10;
+        }
+        .light-leak-bottom-left {
+            position: fixed;
+            bottom: -10vh;
+            left: -10vw;
+            width: 50vw;
+            height: 50vh;
+            background: radial-gradient(circle, rgba(214, 184, 168, 0.03) 0%, rgba(214, 184, 168, 0) 70%);
+            pointer-events: none;
+            z-index: 10;
+        }
+        .custom-cursor {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(197, 160, 89, 0.5); /* Soft Rose Gold / Muted Gold feel */
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease, filter 0.2s ease;
+            transform: translate(-50%, -50%);
+        }
+        /* Simulated cursor hover effect for interactive elements */
+        a:hover ~ .custom-cursor, button:hover ~ .custom-cursor, .interactive:hover ~ .custom-cursor {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(197, 160, 89, 0.2);
+            filter: blur(2px);
+        }
+        
+        .card-shadow-hover {
+            transition: all 0.5s ease-out;
+        }
+        .card-shadow-hover:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px) scale(1.01);
+        }
+        
+        .paper-texture {
+            position: relative;
+        }
+        .paper-texture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: overlay;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen antialiased overflow-x-hidden selection:bg-surface-tint selection:text-surface-container-lowest">
+<div class="noise-overlay"></div>
+<div class="light-leak-top-right"></div>
+<div class="light-leak-bottom-left"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/5 border-none shadow-none flex justify-between items-center px-margin-page py-6 max-w-full">
+<div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface dark:text-on-surface tracking-tighter">
+            Open When...
+        </div>
+<div class="hidden md:flex items-center gap-gutter-editorial">
+<a class="text-on-surface-variant font-label-caps tracking-widest text-label-caps font-label-caps hover:text-primary transition-all duration-300 ease-in-out" href="#">The Story</a>
+<a class="text-primary border-b border-primary pb-1 transition-all duration-500 font-label-caps tracking-widest text-label-caps" href="#">Our Letters</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest text-label-caps font-label-caps hover:text-primary transition-all duration-300 ease-in-out" href="#">Memories</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest text-label-caps font-label-caps hover:text-primary transition-all duration-300 ease-in-out" href="#">Write New</a>
+</div>
+<button class="md:hidden text-primary dark:text-primary hover:text-primary transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu</span>
+</button>
+</nav>
+<!-- Main Content -->
+<main class="pt-[120px] pb-stack-xl px-margin-page">
+<!-- Header Section -->
+<header class="max-w-4xl mx-auto text-center mb-stack-xl">
+<h1 class="font-display-editorial text-display-editorial text-primary mb-stack-md opacity-90">Unsealed Sentiments</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto italic">
+                A collection of carefully preserved letters, waiting for the perfect moment. Choose an envelope when the feeling arises.
+            </p>
+</header>
+<!-- Editorial Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-editorial max-w-7xl mx-auto relative">
+<!-- Letter 1: Off-axis Left -->
+<div class="md:col-span-5 md:col-start-1 mb-stack-lg md:mb-0 relative interactive group perspective-1000">
+<div class="bg-[#2B1E1E] paper-texture rounded-DEFAULT p-8 h-[400px] flex flex-col justify-between border border-outline-variant/30 card-shadow-hover relative z-10 transform-gpu group-hover:rotate-y-[-2deg] transition-transform duration-700 ease-out">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-surface-tint opacity-50" style="font-variation-settings: 'FILL' 1;">mail</span>
+<div class="font-accent-script text-accent-script text-primary/40 -rotate-3">No. 01</div>
+</div>
+<div class="text-center relative z-20">
+<h2 class="font-headline-lg text-[40px] leading-tight text-on-surface mb-4">Open when<br/><span class="italic text-primary">you miss me</span></h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-60">Sealed with affection</p>
+</div>
+<div class="w-full flex justify-center">
+<div class="w-12 h-[1px] bg-primary/30 group-hover:w-24 transition-all duration-500"></div>
+</div>
+</div>
+</div>
+<!-- Letter 2: Off-axis Right -->
+<div class="md:col-span-6 md:col-start-7 mt-0 md:mt-stack-lg mb-stack-lg md:mb-0 relative interactive group perspective-1000">
+<div class="bg-[#2B1E1E] paper-texture rounded-DEFAULT p-8 h-[450px] flex flex-col justify-between border border-outline-variant/30 card-shadow-hover relative z-10 transform-gpu group-hover:rotate-y-[2deg] transition-transform duration-700 ease-out">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-surface-tint opacity-50">mail</span>
+<div class="font-accent-script text-accent-script text-primary/40 rotate-2">No. 02</div>
+</div>
+<div class="text-center relative z-20">
+<h2 class="font-headline-lg text-[40px] leading-tight text-on-surface mb-4">Open when<br/><span class="italic text-primary">you’re lonely</span></h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-60">A quiet companion</p>
+</div>
+<div class="w-full flex justify-center">
+<div class="w-12 h-[1px] bg-primary/30 group-hover:w-24 transition-all duration-500"></div>
+</div>
+</div>
+</div>
+<!-- Letter 3: Centered Wide -->
+<div class="md:col-span-8 md:col-start-3 mt-0 md:mt-stack-xl mb-stack-lg md:mb-0 relative interactive group perspective-1000">
+<div class="bg-[#2B1E1E] paper-texture rounded-DEFAULT p-10 h-[350px] flex flex-col justify-between border border-[#C5A059]/20 card-shadow-hover relative z-10 transform-gpu group-hover:scale-[1.02] transition-transform duration-700 ease-out shadow-[inset_0_0_40px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-[#C5A059] opacity-70">mail</span>
+<div class="font-accent-script text-accent-script text-[#C5A059]/40">No. 03</div>
+</div>
+<div class="text-center relative z-20">
+<h2 class="font-headline-lg text-[48px] leading-tight text-on-surface mb-4">Open when<br/><span class="italic text-[#C5A059]">you overthink</span></h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-60">Grounding thoughts</p>
+</div>
+<div class="w-full flex justify-center">
+<div class="w-12 h-[1px] bg-[#C5A059]/30 group-hover:w-32 transition-all duration-500"></div>
+</div>
+</div>
+</div>
+<!-- Letter 4: Grid Block -->
+<div class="md:col-span-4 md:col-start-1 mt-0 md:mt-stack-xl mb-stack-lg md:mb-0 relative interactive group perspective-1000">
+<div class="bg-surface-container-high paper-texture rounded-DEFAULT p-8 h-[380px] flex flex-col justify-between border border-outline-variant/20 card-shadow-hover relative z-10 transform-gpu group-hover:rotate-y-[-1deg] transition-transform duration-700 ease-out">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-surface-tint opacity-40">mail</span>
+<div class="font-accent-script text-accent-script text-primary/30 -rotate-1">No. 04</div>
+</div>
+<div class="text-center relative z-20">
+<h2 class="font-headline-lg text-[36px] leading-tight text-on-surface mb-4">Open when<br/><span class="italic text-primary">we fight</span></h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-60">To find peace</p>
+</div>
+<div class="w-full flex justify-center">
+<div class="w-8 h-[1px] bg-primary/30 group-hover:w-16 transition-all duration-500"></div>
+</div>
+</div>
+</div>
+<!-- Letter 5: Grid Block -->
+<div class="md:col-span-4 md:col-start-5 mt-0 md:mt-stack-xl md:-translate-y-8 mb-stack-lg md:mb-0 relative interactive group perspective-1000">
+<div class="bg-[#2B1E1E] paper-texture rounded-DEFAULT p-8 h-[380px] flex flex-col justify-between border border-outline-variant/30 card-shadow-hover relative z-10 transform-gpu group-hover:rotate-y-[1deg] transition-transform duration-700 ease-out">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-surface-tint opacity-50">mail</span>
+<div class="font-accent-script text-accent-script text-primary/40 rotate-1">No. 05</div>
+</div>
+<div class="text-center relative z-20">
+<h2 class="font-headline-lg text-[36px] leading-tight text-on-surface mb-4">Open before<br/><span class="italic text-primary">sleeping</span></h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-60">Sweet dreams</p>
+</div>
+<div class="w-full flex justify-center">
+<div class="w-8 h-[1px] bg-primary/30 group-hover:w-16 transition-all duration-500"></div>
+</div>
+</div>
+</div>
+<!-- Letter 6: Grid Block -->
+<div class="md:col-span-4 md:col-start-9 mt-0 md:mt-stack-xl md:translate-y-4 mb-stack-lg md:mb-0 relative interactive group perspective-1000">
+<div class="bg-[#2B1E1E] paper-texture rounded-DEFAULT p-8 h-[380px] flex flex-col justify-between border border-[#C5A059]/30 card-shadow-hover relative z-10 transform-gpu group-hover:rotate-y-[-2deg] transition-transform duration-700 ease-out shadow-[inset_0_0_20px_rgba(0,0,0,0.3)]">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-[#C5A059] opacity-60">mail</span>
+<div class="font-accent-script text-accent-script text-[#C5A059]/40 -rotate-2">No. 06</div>
+</div>
+<div class="text-center relative z-20">
+<h2 class="font-headline-lg text-[36px] leading-tight text-on-surface mb-4">Open on<br/><span class="italic text-[#C5A059]">your birthday</span></h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-60">A yearly wish</p>
+</div>
+<div class="w-full flex justify-center">
+<div class="w-8 h-[1px] bg-[#C5A059]/30 group-hover:w-16 transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Call to Action -->
+<div class="mt-stack-xl text-center">
+<button class="px-8 py-4 border border-[#C5A059] text-[#C5A059] font-label-caps text-label-caps tracking-widest hover:bg-[#C5A059] hover:text-surface-container-lowest transition-colors duration-500 ease-in-out">
+                WRITE A NEW LETTER
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg border-t border-outline-variant/20 bg-surface dark:bg-surface flex flex-col md:flex-row justify-between items-center px-margin-page gap-stack-md mt-stack-xl">
+<div class="font-accent-script text-accent-script text-primary">
+            Open When...
+        </div>
+<div class="font-body-sm text-body-sm text-secondary dark:text-secondary opacity-60">
+            © 2024 Open When... A Digital Heirloom.
+        </div>
+<div class="flex gap-gutter-editorial">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-300" href="#">Privacy</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-300" href="#">Archive</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-300" href="#">Terms</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+</footer>
+<div class="custom-cursor hidden md:block"></div>
+</body></html>

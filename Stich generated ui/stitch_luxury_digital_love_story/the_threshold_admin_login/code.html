@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Entrance - Open When...</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400&amp;family=Inter:wght@300;400;500;600&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Parisienne&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined', sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Subtle Film Grain Overlay */
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Minimal Input Autocomplete Fix */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active{
+            -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+            -webkit-text-fill-color: #eae1d6 !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    </style>
+<!-- Tailwind Setup -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#eae1d6",
+                      "outline-variant": "#444748",
+                      "on-error": "#690005",
+                      "primary-container": "#121212",
+                      "secondary-fixed": "#e6e2dc",
+                      "surface": "#16130d",
+                      "secondary-fixed-dim": "#c9c6c0",
+                      "error-container": "#93000a",
+                      "background": "#16130d",
+                      "on-tertiary": "#3b2d2d",
+                      "surface-bright": "#3d3931",
+                      "surface-container-high": "#2e2922",
+                      "surface-container-lowest": "#110e08",
+                      "outline": "#8e9192",
+                      "on-secondary-fixed": "#1c1c18",
+                      "on-primary-container": "#7e7d7d",
+                      "on-error-container": "#ffdad6",
+                      "primary": "#c8c6c5",
+                      "inverse-primary": "#5f5e5e",
+                      "surface-dim": "#16130d",
+                      "on-tertiary-fixed": "#251818",
+                      "on-surface-variant": "#c4c7c7",
+                      "inverse-on-surface": "#343028",
+                      "tertiary-fixed-dim": "#d8c1c1",
+                      "tertiary-container": "#1b0f0f",
+                      "surface-container-low": "#1f1b14",
+                      "on-tertiary-fixed-variant": "#534343",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-secondary": "#31302d",
+                      "on-secondary-container": "#bbb8b2",
+                      "surface-container": "#231f18",
+                      "on-primary": "#313030",
+                      "tertiary-fixed": "#f5dddc",
+                      "surface-variant": "#39342d",
+                      "secondary-container": "#4a4945",
+                      "on-primary-fixed-variant": "#474646",
+                      "on-background": "#eae1d6",
+                      "surface-container-highest": "#39342d",
+                      "on-secondary-fixed-variant": "#484743",
+                      "tertiary": "#d8c1c1",
+                      "secondary": "#c9c6c0",
+                      "primary-fixed": "#e5e2e1",
+                      "on-tertiary-container": "#8c7979",
+                      "error": "#ffb4ab",
+                      "surface-tint": "#c8c6c5",
+                      "on-surface": "#eae1d6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-page": "5vw",
+                      "stack-md": "1.5rem",
+                      "stack-lg": "4rem",
+                      "gutter-editorial": "2rem",
+                      "stack-xl": "8rem",
+                      "stack-sm": "0.5rem"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Libre Baskerville"
+                      ],
+                      "headline-lg-mobile": [
+                              "Bodoni Moda"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Bodoni Moda"
+                      ],
+                      "display-editorial": [
+                              "Bodoni Moda"
+                      ],
+                      "accent-script": [
+                              "Parisienne"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "180%",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "120%",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "160%",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "100%",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "120%",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-editorial": [
+                              "120px",
+                              {
+                                      "lineHeight": "110%",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "accent-script": [
+                              "32px",
+                              {
+                                      "lineHeight": "100%",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen relative overflow-hidden flex items-center justify-center selection:bg-primary selection:text-background">
+<!-- CSS Noise Overlay -->
+<div class="film-grain"></div>
+<!-- Cinematic Background -->
+<div class="absolute inset-0 z-0">
+<!-- Abstract Atmospheric Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-luminosity" data-alt="A cinematic, moody abstract background texture for a luxury digital heirloom app. Deep charcoal and onyx tones dominate, with a very subtle, soft light leak emanating from the bottom left corner. The texture resembles thick, high-quality handmade paper viewed in dim, atmospheric lighting. A fine film grain is visible, giving it an intimate, analog, vintage photography feel. High contrast but soft edges, perfectly framing a central subject." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUcSr0CyLl4EZ-NoitV5HVMohQk4_CjVMSKc5CfWGCt370n3HA6s8xMsquJjy_SLsp1ISrsC54FDigF14y38sGceHhsBi0SQ6Za7KYNOJanKnS2OdAe9bjB7T6v2bH2OaaURpHmKTHJ9wM8UOBC0Qm7TrXaoJfltHJpYlT-g1G-HzAVWTI4C9LOueCWo7_GvG9mBn0tqaFV5NRMS44sgZi90UFNb3kbDbgFtUl2HxySM-k8u67lNvbgcugymGpgCVTv6rSTznPtdY');">
+</div>
+<!-- Radial Vignette -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#16130d_100%)] opacity-90"></div>
+<!-- Subtle Light Leak -->
+<div class="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-surface-tint rounded-full blur-[120px] opacity-10"></div>
+</div>
+<!-- Main Content Canvas (Login) -->
+<main class="relative z-10 w-full max-w-[500px] px-margin-page">
+<!-- Glassmorphism Card -->
+<div class="bg-[#2B1E1E]/40 backdrop-blur-md border border-white/5 rounded-xl p-stack-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7),inset_0_0_20px_rgba(200,198,197,0.03)] flex flex-col items-center">
+<!-- Brand & Title -->
+<div class="text-center mb-stack-lg w-full">
+<p class="font-accent-script text-accent-script text-primary mb-2 opacity-80">Open When...</p>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tighter">Admin Entrance</h1>
+</div>
+<!-- Login Form -->
+<form class="w-full flex flex-col gap-stack-md">
+<!-- Identifier Input -->
+<div class="relative group">
+<label class="font-label-caps text-label-caps text-on-surface-variant/70 mb-2 block uppercase" for="admin-id">Credential ID</label>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 py-3 px-0 font-body-lg text-body-lg text-on-surface placeholder:text-on-surface-variant/30 focus:ring-0 focus:border-primary transition-colors duration-300 peer" id="admin-id" name="admin-id" placeholder="Enter your given identifier" type="text"/>
+<span class="absolute right-0 bottom-3 text-outline-variant/40 peer-focus:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined" style="font-size: 20px;">fingerprint</span>
+</span>
+</div>
+</div>
+<!-- Passphrase Input -->
+<div class="relative group mt-2">
+<div class="flex justify-between items-end mb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant/70 uppercase" for="admin-pass">Passphrase</label>
+<a class="font-body-sm text-body-sm text-primary/70 hover:text-primary transition-colors" href="#">Recover Access</a>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 py-3 px-0 font-body-lg text-body-lg text-on-surface placeholder:text-on-surface-variant/30 focus:ring-0 focus:border-primary transition-colors duration-300 peer" id="admin-pass" name="admin-pass" placeholder="••••••••••••" type="password"/>
+<span class="absolute right-0 bottom-3 text-outline-variant/40 peer-focus:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined" style="font-size: 20px;">key</span>
+</span>
+</div>
+</div>
+<!-- Submit Action -->
+<div class="mt-stack-md pt-4">
+<button class="w-full py-4 border border-primary/50 text-primary font-label-caps text-label-caps uppercase tracking-[0.25em] hover:bg-primary hover:text-background hover:shadow-[0_0_30px_rgba(200,198,197,0.2)] transition-all duration-500 flex items-center justify-center gap-3 group overflow-hidden relative" type="submit">
+<span class="relative z-10">Authenticate</span>
+<span class="material-symbols-outlined relative z-10 text-[18px] opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-500">arrow_right_alt</span>
+<!-- Hover subtle inner glow -->
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-0"></div>
+</button>
+</div>
+</form>
+</div>
+<!-- Minimal Meta Footer -->
+<div class="mt-stack-md text-center opacity-40">
+<p class="font-label-caps text-[10px] text-on-surface-variant tracking-[0.3em] uppercase">Secured by Open When Archive Systems</p>
+</div>
+</main>
+</body></html>
