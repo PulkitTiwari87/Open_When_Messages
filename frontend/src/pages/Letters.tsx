@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import LetterEnvelope from '../components/LetterEnvelope';
+import { API_BASE_URL } from '../config';
 
 interface Letter {
   _id: string;
@@ -17,7 +18,7 @@ export default function Letters() {
   useEffect(() => {
     const fetchLetters = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/letters');
+        const response = await fetch(`${API_BASE_URL}/api/letters`);
         const data = await response.json();
         setLettersList(data);
       } catch (error) {

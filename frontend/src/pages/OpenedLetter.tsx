@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config';
 
 interface LetterData {
   title: string;
@@ -48,7 +49,7 @@ export default function OpenedLetter() {
         const headers: HeadersInit = {};
         if (token) headers['Authorization'] = `Bearer ${token}`;
 
-        const response = await fetch(`http://localhost:5000/api/letters/${slug}`, { headers });
+        const response = await fetch(`${API_BASE_URL}/api/letters/${slug}`, { headers });
         if (!response.ok) throw new Error('Letter not found');
         const data = await response.json();
         

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config';
 
 interface Letter {
   _id: string;
@@ -38,7 +39,7 @@ export default function AdminDashboard() {
 
   const fetchLetters = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/letters');
+      const response = await fetch(`${API_BASE_URL}/api/letters`);
       const data = await response.json();
       setLetters(data);
     } catch (err) {
@@ -57,7 +58,7 @@ export default function AdminDashboard() {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/upload', {
+      const res = await fetch(`${API_BASE_URL}/api/upload`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` },
         body: uploadFormData
@@ -79,8 +80,8 @@ export default function AdminDashboard() {
     const token = localStorage.getItem('token');
     
     const url = editingLetterId 
-      ? `http://localhost:5000/api/letters/${editingLetterId}`
-      : 'http://localhost:5000/api/letters';
+      ? `${API_BASE_URL}/api/letters/${editingLetterId}`
+      : `${API_BASE_URL}/api/letters`;
       
     const method = editingLetterId ? 'PUT' : 'POST';
 
@@ -183,7 +184,7 @@ export default function AdminDashboard() {
                       onClick={async () => {
                         // Fetch the full letter content to get the message since the list endpoint excludes it
                         const token = localStorage.getItem('token');
-                        const res = await fetch(`http://localhost:5000/api/letters/${letter.slug}`, {
+                        const res = await fetch(`${API_BASE_URL}/api/letters/${letter.slug}`, {
                           headers: { 'Authorization': `Bearer ${token}` }
                         });
                         const fullLetter = await res.json();
