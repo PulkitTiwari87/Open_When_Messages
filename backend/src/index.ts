@@ -32,18 +32,22 @@ app.get('/', (req: Request, res: Response) => {
 
 import { seedLetters } from './seed';
 
-// Database connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/secret';
-
-mongoose.connect(MONGODB_URI)
-  .then(async () => {
-    console.log('Connected to MongoDB');
-    await seedLetters();
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+// Start server first so hosting platforms (like Render) know the app is alive
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+  
+  // Connect to MongoDB asynchronously
+  const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/secret';
+  console.log('Connecting to MongoDB...');
+  
+  mongoose.connect(MONGODB_URI)
+    .then(async () => {
+      console.log('Connected to MongoDB successfully');
+      await seedLetters();
+    })
+    .catch((error) => {
+      console.error('MongoDB connection error:', error);
+      console.error('Please ensure MONGODB_URI is correctly set in your Render environment variables.');
     });
-  })
-  .catch((error) => {
-    console.error('MongoDB connection error:', error);
-  });
+});
 
