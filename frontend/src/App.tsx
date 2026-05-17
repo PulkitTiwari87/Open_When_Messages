@@ -64,8 +64,6 @@ function App() {
     };
   }, []);
 
-  // Don't show navigation on login page
-  const isLoginPage = location.pathname === '/login' || location.pathname === '/';
   // Wait, if login is the VERY FIRST page, we should redirect / to /login instead.
   // Or render Login on /login. We will handle redirect to /login inside ProtectedRoute.
   // We'll hide nav only on exactly '/login'.

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 
 export default function Home() {
-  const username = localStorage.getItem('username') || '';
   const role = localStorage.getItem('role');
   return (
     <motion.main 
