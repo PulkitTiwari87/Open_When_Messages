@@ -15,22 +15,30 @@ export default function Navigation() {
     { name: 'Gallery', path: '/gallery' },
     { name: 'Playlist', path: '/playlist' },
     { name: 'Future Together', path: '/future' },
-    { name: 'Secret Page', path: '/secret' },
-    { name: 'Birthday Letter', path: '/birthday' },
   ];
 
   const role = localStorage.getItem('role');
   if (role === 'admin') {
+    links.push({ name: 'Secret Page', path: '/secret' });
+    links.push({ name: 'Birthday Letter', path: '/birthday' });
     links.push({ name: 'Admin Dashboard', path: '/admin' });
   }
 
   return (
     <>
       <nav className="absolute top-0 w-full z-50 bg-transparent flex justify-between items-center px-margin-page py-6 max-w-full pointer-events-none">
-        <div className="pointer-events-auto">
+        <div className="pointer-events-auto flex items-center gap-2">
           <Link to="/" className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tighter hover:opacity-80 transition-opacity drop-shadow-md">
             Open When...
           </Link>
+          {role === 'admin' && (
+            <motion.div 
+              animate={{ opacity: [0.4, 1, 0.4], scale: [0.9, 1.1, 0.9] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+              className="w-1.5 h-1.5 rounded-full bg-[#C5A059]"
+              title="Admin Mode"
+            />
+          )}
         </div>
         
         <div className="pointer-events-auto">

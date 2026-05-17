@@ -4,13 +4,15 @@ import bcrypt from 'bcryptjs';
 
 const router = express.Router();
 
-const ADMIN_USER = 'Pulkit_loves_Purva';
-const ADMIN_PASS = 'Purvapulkit@03';
+const ADMIN_USER = process.env.ADMIN_USERNAME!;
+const ADMIN_PASS = process.env.ADMIN_PASSWORD!;
+const GF_USER = process.env.GIRLFRIEND_USERNAME!;
+const GF_PASS = process.env.GIRLFRIEND_PASSWORD!;
 
 router.post('/login', async (req: Request, res: Response): Promise<void> => {
   try {
     let { username, password } = req.body;
-    
+
     // Trim to avoid trailing spaces from copy-pasting
     username = username?.trim();
     password = password?.trim();
@@ -18,19 +20,19 @@ router.post('/login', async (req: Request, res: Response): Promise<void> => {
     // Hardcoded check for admin
     if (username === ADMIN_USER && password === ADMIN_PASS) {
       const token = jwt.sign(
-        { username, role: 'admin' }, 
-        process.env.JWT_SECRET || 'fallback_secret_key_12345', 
+        { username, role: 'admin' },
+        process.env.JWT_SECRET || 'fallback_secret_key_12345',
         { expiresIn: '30d' }
       );
       res.json({ token, username, role: 'admin' });
       return;
     }
 
-    // Hardcoded check for the main user (Purva)
-    if (username === 'Purva' && password === 'Purvapulkit@03') {
+    // Check for girlfriend user
+    if (username === GF_USER && password === GF_PASS) {
       const token = jwt.sign(
-        { username, role: 'user' }, 
-        process.env.JWT_SECRET || 'fallback_secret_key_12345', 
+        { username, role: 'user' },
+        process.env.JWT_SECRET || 'fallback_secret_key_12345',
         { expiresIn: '30d' }
       );
       res.json({ token, username, role: 'user' });

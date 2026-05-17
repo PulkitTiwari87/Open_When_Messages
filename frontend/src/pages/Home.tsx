@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 
 export default function Home() {
+  const username = localStorage.getItem('username') || '';
+  const role = localStorage.getItem('role');
   return (
     <motion.main 
       initial={{ opacity: 0 }}
@@ -68,6 +70,16 @@ export default function Home() {
       <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }} className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full blur-[2px] opacity-30"></motion.div>
       <motion.div animate={{ y: [0, 15, 0] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }} className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-tertiary rounded-full blur-[3px] opacity-20"></motion.div>
       <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }} className="absolute top-1/2 right-1/3 w-1 h-1 bg-surface-tint rounded-full blur-[1px] opacity-40"></motion.div>
+      
+      {/* Personalized Welcome */}
+      <motion.p 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 0.3 }} 
+        transition={{ delay: 2, duration: 2 }}
+        className="font-accent-script text-xl text-[#C5A059]/50 mt-16 text-center z-10 relative"
+      >
+        {role === 'admin' ? 'Welcome back, Pulkit.' : `This was made for you, Purva.`}
+      </motion.p>
     </motion.main>
   );
 }
