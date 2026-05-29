@@ -99,6 +99,9 @@ export default function OpenedLetter() {
           if (!url) return true;
           const resolved = resolveImage(url);
           return (
+            resolved === '/IMG-20260402-WA0003.jpg' ||
+            resolved === '/IMG-20260401-WA0069.jpg' ||
+            resolved === '/IMG-20260401-WA0089.jpg' ||
             resolved === '/img_20260402_wa0003.jpg' ||
             resolved === '/img_20260401_wa0069.jpg' ||
             resolved === '/img_20260401_wa0089.jpg' ||
