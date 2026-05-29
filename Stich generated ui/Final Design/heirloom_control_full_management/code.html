@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Open When... CMS Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Inter:wght@300..600&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Parisienne&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#eae1d6",
+                      "outline-variant": "#444748",
+                      "on-error": "#690005",
+                      "primary-container": "#121212",
+                      "secondary-fixed": "#e6e2dc",
+                      "surface": "#16130d",
+                      "secondary-fixed-dim": "#c9c6c0",
+                      "error-container": "#93000a",
+                      "background": "#16130d",
+                      "on-tertiary": "#3b2d2d",
+                      "surface-bright": "#3d3931",
+                      "surface-container-high": "#2e2922",
+                      "surface-container-lowest": "#110e08",
+                      "outline": "#8e9192",
+                      "on-secondary-fixed": "#1c1c18",
+                      "on-primary-container": "#7e7d7d",
+                      "on-error-container": "#ffdad6",
+                      "primary": "#c8c6c5",
+                      "inverse-primary": "#5f5e5e",
+                      "surface-dim": "#16130d",
+                      "on-tertiary-fixed": "#251818",
+                      "on-surface-variant": "#c4c7c7",
+                      "inverse-on-surface": "#343028",
+                      "tertiary-fixed-dim": "#d8c1c1",
+                      "tertiary-container": "#1b0f0f",
+                      "surface-container-low": "#1f1b14",
+                      "on-tertiary-fixed-variant": "#534343",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-secondary": "#31302d",
+                      "on-secondary-container": "#bbb8b2",
+                      "surface-container": "#231f18",
+                      "on-primary": "#313030",
+                      "tertiary-fixed": "#f5dddc",
+                      "surface-variant": "#39342d",
+                      "secondary-container": "#4a4945",
+                      "on-primary-fixed-variant": "#474646",
+                      "on-background": "#eae1d6",
+                      "surface-container-highest": "#39342d",
+                      "on-secondary-fixed-variant": "#484743",
+                      "tertiary": "#d8c1c1",
+                      "secondary": "#c9c6c0",
+                      "primary-fixed": "#e5e2e1",
+                      "on-tertiary-container": "#8c7979",
+                      "error": "#ffb4ab",
+                      "surface-tint": "#c8c6c5",
+                      "on-surface": "#eae1d6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-page": "5vw",
+                      "stack-md": "1.5rem",
+                      "stack-lg": "4rem",
+                      "gutter-editorial": "2rem",
+                      "stack-xl": "8rem",
+                      "stack-sm": "0.5rem"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Libre Baskerville"
+                      ],
+                      "headline-lg-mobile": [
+                              "Bodoni Moda"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Bodoni Moda"
+                      ],
+                      "display-editorial": [
+                              "Bodoni Moda"
+                      ],
+                      "accent-script": [
+                              "Parisienne"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "180%",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "120%",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "160%",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "100%",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "120%",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-editorial": [
+                              "120px",
+                              {
+                                      "lineHeight": "110%",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "accent-script": [
+                              "32px",
+                              {
+                                      "lineHeight": "100%",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        .light-leak {
+            position: fixed;
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(214, 184, 168, 0.05) 0%, rgba(214, 184, 168, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .light-leak-1 { top: -20vh; left: -10vw; }
+        .light-leak-2 { bottom: -20vh; right: -10vw; }
+        
+        .glass-panel {
+            background: rgba(43, 30, 30, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen relative overflow-x-hidden">
+<!-- Atmospheric Layers -->
+<div class="noise-overlay"></div>
+<div class="light-leak light-leak-1"></div>
+<div class="light-leak light-leak-2"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-none shadow-none text-primary dark:text-primary">
+<div class="flex justify-between items-center w-full px-margin-page py-6 max-w-full">
+<div class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface dark:text-on-surface tracking-tighter">Open When...</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out" href="#">The Story</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out" href="#">Our Letters</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out" href="#">Memories</a>
+<a class="text-primary border-b border-primary pb-1 transition-all duration-500 font-label-caps tracking-widest hover:text-primary ease-in-out" href="#">Write New</a>
+</div>
+<button class="flex items-center justify-center p-2 text-on-surface-variant hover:text-primary transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="relative z-10 pt-[153px] px-margin-page pb-stack-xl flex flex-col gap-stack-lg max-w-[1400px] mx-auto">
+<!-- Header -->
+<header class="flex flex-col gap-stack-sm md:w-2/3">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Curate the Heirloom</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Seal moments in time. Craft letters that unfold exactly when they are needed most.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-editorial">
+<!-- Left Column: Form Area -->
+<div class="lg:col-span-7 flex flex-col gap-stack-md">
+<section class="glass-panel p-8 md:p-12 rounded-xl flex flex-col gap-stack-md relative">
+<h2 class="font-headline-lg text-2xl text-on-surface border-b border-outline-variant/30 pb-4 mb-2">Write a New Letter</h2>
+<div class="flex flex-col gap-6">
+<!-- Input: Title -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-primary">The Occasion (Title)</label>
+<input class="bg-transparent border-0 border-b border-[#C5A059]/30 focus:border-[#C5A059] focus:ring-0 px-0 py-3 font-body-lg text-body-lg text-on-surface placeholder:text-on-surface-variant/50 transition-colors" placeholder="Open when you feel lost..." type="text"/>
+</div>
+<!-- Input: Message -->
+<div class="flex flex-col gap-2 mt-4">
+<label class="font-label-caps text-label-caps text-primary">The Message</label>
+<textarea class="bg-transparent border-0 border-b border-[#C5A059]/30 focus:border-[#C5A059] focus:ring-0 px-0 py-3 font-body-lg text-body-lg text-on-surface placeholder:text-on-surface-variant/50 transition-colors resize-none" placeholder="My dearest..." rows="6"></textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+<!-- Input: Date -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-primary">Unlock Date (Optional)</label>
+<input class="bg-transparent border-0 border-b border-[#C5A059]/30 focus:border-[#C5A059] focus:ring-0 px-0 py-3 font-body-lg text-body-lg text-on-surface placeholder:text-on-surface-variant/50 transition-colors [color-scheme:dark]" type="date"/>
+</div>
+<!-- Input: Style -->
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-primary">Atmosphere Style</label>
+<select class="bg-transparent border-0 border-b border-[#C5A059]/30 focus:border-[#C5A059] focus:ring-0 px-0 py-3 font-body-lg text-body-lg text-on-surface transition-colors">
+<option class="bg-surface" value="dust">Golden Dust</option>
+<option class="bg-surface" value="rain">Melancholy Rain</option>
+<option class="bg-surface" value="ember">Fading Embers</option>
+</select>
+</div>
+</div>
+<!-- Upload Area -->
+<div class="mt-6 flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-primary">Hero Memory (Media)</label>
+<div class="border border-dashed border-[#C5A059]/30 hover:border-[#C5A059] rounded-lg p-8 flex flex-col items-center justify-center gap-4 cursor-pointer transition-colors bg-surface-container-low/50">
+<span class="material-symbols-outlined text-4xl text-primary/50" style="font-variation-settings: 'FILL' 0;">cloud_upload</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center">Drag &amp; drop a cinematic moment<br/>or click to browse</p>
+</div>
+</div>
+<!-- Action -->
+<div class="mt-8 flex justify-end">
+<button class="border border-[#C5A059] text-[#C5A059] px-8 py-3 font-label-caps text-label-caps hover:bg-[#C5A059] hover:text-surface transition-all duration-500 tracking-widest rounded">
+                                SEAL LETTER
+                            </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: List & Media -->
+<div class="lg:col-span-5 flex flex-col gap-stack-md">
+<!-- Sealed Archive -->
+<section class="glass-panel p-6 rounded-xl flex flex-col gap-4">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-4">
+<h3 class="font-headline-lg text-xl text-on-surface">The Archive</h3>
+<span class="font-label-caps text-label-caps text-primary/70">10 Letters Sealed</span>
+</div>
+<div class="flex flex-col gap-4 mt-2"><div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container/30 hover:bg-surface-container/60 transition-colors border border-transparent hover:border-[#C5A059]/20 group"><div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[#C5A059]" style="font-variation-settings: 'FILL' 0;">mail</span></div><div class="flex-1 min-w-0"><p class="font-body-lg text-sm text-on-surface truncate">Open when you need courage</p><p class="font-label-caps text-[10px] text-on-surface-variant/70 mt-1">Unlocks: Any time</p></div><div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity"><button class="text-on-surface-variant hover:text-primary p-1"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-on-surface-variant hover:text-error p-1"><span class="material-symbols-outlined text-sm">delete</span></button></div></div><div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container/30 hover:bg-surface-container/60 transition-colors border border-transparent hover:border-[#C5A059]/20 group"><div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">cake</span></div><div class="flex-1 min-w-0"><p class="font-body-lg text-sm text-on-surface truncate">Birthday Letter</p><p class="font-label-caps text-[10px] text-on-surface-variant/70 mt-1">Unlocks: Jul 12, 2025</p></div><div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity"><button class="text-on-surface-variant hover:text-primary p-1"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-on-surface-variant hover:text-error p-1"><span class="material-symbols-outlined text-sm">delete</span></button></div></div><div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container/30 hover:bg-surface-container/60 transition-colors border border-transparent hover:border-[#C5A059]/20 group"><div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">favorite</span></div><div class="flex-1 min-w-0"><p class="font-body-lg text-sm text-on-surface truncate">Open when you miss me</p><p class="font-label-caps text-[10px] text-on-surface-variant/70 mt-1">Unlocks: Any time</p></div><div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity"><button class="text-on-surface-variant hover:text-primary p-1"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-on-surface-variant hover:text-error p-1"><span class="material-symbols-outlined text-sm">delete</span></button></div></div><div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container/30 hover:bg-surface-container/60 transition-colors border border-transparent hover:border-[#C5A059]/20 group"><div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">lock_clock</span></div><div class="flex-1 min-w-0"><p class="font-body-lg text-sm text-on-surface truncate">Open on our anniversary</p><p class="font-label-caps text-[10px] text-on-surface-variant/70 mt-1">Unlocks: Oct 24, 2025</p></div><div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity"><button class="text-on-surface-variant hover:text-primary p-1"><span class="material-symbols-outlined text-sm">edit</span></button><button class="text-on-surface-variant hover:text-error p-1"><span class="material-symbols-outlined text-sm">delete</span></button></div></div></div>
+</section>
+<!-- Media Vault snippet -->
+<section class="glass-panel p-6 rounded-xl flex flex-col gap-4 mt-auto">
+<h3 class="font-headline-lg text-xl text-on-surface border-b border-outline-variant/30 pb-4">Media Vault</h3>
+<div class="grid grid-cols-3 gap-2 mt-2"><div class="aspect-square bg-surface-container-high rounded overflow-hidden relative group cursor-pointer"><img alt="Memory" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg3dqEvO688YEKI9VNBJ3lnQt4bjUhD0gANPCAmWrYxqKXY6wI9BATHoVtDnk2Q2AdlK59MQkmEn22cc3UAr3L6BtMM8_W_qT5W8ZbiwNY2GVA821DxWmgXsxd_xMP_1tSQVes1ZUMl8r4Mjcmzvs9mmf_x1YaaI32ZdWmUbML62HOhxW-SUN3UmOO5Naitsyg5j0CPGqp4B3B3N7iXOZZtHDGu4uYO24scVC74V6tZGhlFrIUfu6RQXwBWQw3CfUF3QjwbP7ohZE"/></div><div class="aspect-square bg-surface-container-high rounded overflow-hidden relative group cursor-pointer"><img alt="Memory" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRGdHiJoMq0z74uCrS3qBYLWWj843PWHSkSkc6IijXwE-cijvuX9A_IIerNgXbtiAqdoeW0WIbiKNNkV3oPP_uuBOo7n3Je_uREWYELHpQQtcKJ3NeJla9Jcx-1J2ny3Hbc_IR0eAXmss3am8iKC7uraJQ7pnV1pN4eGwwpB1dlQiL85M9L5g6A0LWRyvNGYdlGw3Apv0ErDIF-pI42QE3oYx9w1uCW7m6lBpoiQVrFixzTahG-kYWmYdXG8Vnbl2ZUUWBMyWREjw"/></div><div class="aspect-square bg-surface-container-high rounded overflow-hidden relative group cursor-pointer"><img alt="Memory" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDACFIXdSZ_hZJfnR8Eejw0tcQe6LUS6XmDbqXAPVG31mlVCCrgOTl6hd1Uxd_momwUxnYN1dNaVzFSy7K5qE8I_u8i9r2fx_gvvpUsK71FRytbf-Y8oivsqujFaavqQqYkiOOzgjwopXeepUeqyobRNoFsZehgnuL27BAPk_PMkxyT47yPXws6a-HMZOhxpfmfOHucxYYHdnMCv1u732c8hIdQ-pQ7EF9A-cG04RR8rO3Uzq1dEKD16t-F6F2-ZVk3Nw9uTQIxxbM"/></div><div class="aspect-square bg-surface-container-high rounded overflow-hidden relative group cursor-pointer"><img alt="Memory" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe8d6qQZ5hJ9FgYzcNBaoo1V7TF4YlSaNhF5G6RiYu5mQSTz2tusaW9QMb8Vnbw3pkv3VAdeiEtPHL8BvGBhH17DuOzeJvcahXzY5Z1PMUz8FUOexAlAeR7exb3SCogJ75R59JIwGx5JC9JeC8C_2wdV5I9jgZUMTrH75qcavRRsvm17yHaFCbQlYizP22ty_MOeX69Los4LENztl4ST3rNyny-Ju0FRUJNYaTKXq_M5_N9Pzw5HxCrXKd1M5LjuPDp3FdD_Q9GJI"/></div><div class="aspect-square bg-surface-container-high rounded overflow-hidden relative group cursor-pointer"><img alt="Memory" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPaaLB6IxOGC1FF_3QmbppepJLwI4qT1_euAvZWQeZrIDtAhgi1OS_Nk3-63Oad4rn9uQd173ABKf3h0FxpImJtuocI1BN7GPNwMwkewdwZEnAw1dKVgC7HM_uGcCEwH1_XcsfI0rlH2ptZn_THsG9uf7i2XRbBo4DzNiwoL9IAF75Bb1Rpb7rbV9uLDzgwuVOzTh35Wk5IOX56A1z66F_d6qbVbc5pRUTbucK1U9xQuUIFD9JtYojTJ6oeADyWwLh5qdki3udbUA"/></div><div class="aspect-square bg-surface-container-high rounded flex items-center justify-center border border-dashed border-outline-variant/50 hover:border-primary/50 cursor-pointer transition-colors"><span class="material-symbols-outlined text-on-surface-variant">add</span></div></div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg border-t border-outline-variant/20 bg-surface dark:bg-surface text-secondary dark:text-secondary">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-page gap-stack-md">
+<div class="font-accent-script text-accent-script text-primary">Open When...</div>
+<div class="flex gap-6 font-body-sm text-body-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Archive</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">© 2024 Open When... A Digital Heirloom.</div>
+</div>
+</footer>
+</body></html>

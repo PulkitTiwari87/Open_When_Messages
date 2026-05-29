@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Open When... You Miss Me</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Inter:wght@300;400;500&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=Parisienne&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#c9c6c0",
+                        "surface-variant": "#39342d",
+                        "on-primary-container": "#7e7d7d",
+                        "tertiary-fixed-dim": "#d8c1c1",
+                        "inverse-surface": "#eae1d6",
+                        "outline": "#8e9192",
+                        "secondary-container": "#4a4945",
+                        "on-secondary": "#31302d",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-container-high": "#2e2922",
+                        "secondary-fixed": "#e6e2dc",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#f5dddc",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface": "#16130d",
+                        "on-surface-variant": "#c4c7c7",
+                        "inverse-on-surface": "#343028",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#16130d",
+                        "on-secondary-fixed-variant": "#484743",
+                        "on-secondary-fixed": "#1c1c18",
+                        "primary-container": "#121212",
+                        "tertiary": "#d8c1c1",
+                        "on-secondary-container": "#bbb8b2",
+                        "on-primary": "#313030",
+                        "tertiary-container": "#1b0f0f",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-container-highest": "#39342d",
+                        "surface-bright": "#3d3931",
+                        "primary": "#c8c6c5",
+                        "inverse-primary": "#5f5e5e",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#110e08",
+                        "on-surface": "#eae1d6",
+                        "secondary-fixed-dim": "#c9c6c0",
+                        "surface-tint": "#c8c6c5",
+                        "background": "#16130d",
+                        "on-background": "#eae1d6",
+                        "surface-container-low": "#1f1b14",
+                        "on-tertiary-container": "#8c7979",
+                        "on-tertiary-fixed": "#251818",
+                        "on-primary-fixed-variant": "#474646",
+                        "outline-variant": "#444748",
+                        "on-tertiary": "#3b2d2d",
+                        "on-tertiary-fixed-variant": "#534343",
+                        "surface-container": "#231f18"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-editorial": "2rem",
+                        "margin-page": "5vw",
+                        "stack-xl": "8rem",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "4rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "accent-script": ["Parisienne"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "display-editorial": ["Bodoni Moda"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Libre Baskerville"],
+                        "headline-lg-mobile": ["Bodoni Moda"]
+                    },
+                    "fontSize": {
+                        "accent-script": ["32px", { "lineHeight": "100%", "fontWeight": "400" }],
+                        "headline-lg": ["64px", { "lineHeight": "120%", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                        "display-editorial": ["120px", { "lineHeight": "110%", "letterSpacing": "-0.03em", "fontWeight": "300" }],
+                        "body-sm": ["14px", { "lineHeight": "160%", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "100%", "letterSpacing": "0.2em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "180%", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["40px", { "lineHeight": "120%", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+        }
+        .vignette {
+            box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
+        }
+        .paper-texture {
+            background-color: #2B1E1E;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="paper"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="5" result="noise"/%3E%3CfeDiffuseLighting in="noise" lighting-color="%23fff" surfaceScale="2"%3E%3CfeDistantLight azimuth="45" elevation="60"/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23paper)" opacity="0.05"/%3E%3C/svg%3E');
+            box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5), inset 0 0 40px rgba(0,0,0,0.2);
+        }
+        .glass-panel {
+            background: rgba(245, 241, 235, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 241, 235, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-sm antialiased overflow-x-hidden selection:bg-surface-variant selection:text-on-surface">
+<div class="grain-overlay"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-white/5 border-none shadow-none flex justify-between items-center px-margin-page py-6 max-w-full">
+<a class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface dark:text-on-surface tracking-tighter" href="#">Open When...</a>
+<div class="hidden md:flex gap-gutter-editorial">
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out" href="#">The Story</a>
+<a class="text-primary border-b border-primary pb-1 transition-all duration-500 font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out" href="#">Our Letters</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out" href="#">Memories</a>
+<a class="text-on-surface-variant font-label-caps tracking-widest hover:text-primary transition-all duration-300 ease-in-out" href="#">Write New</a>
+</div>
+<button class="text-primary dark:text-primary hover:text-primary transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<main>
+<!-- Fullscreen Hero -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden vignette">
+<div class="absolute inset-0 z-0">
+<img alt="Romantic high-contrast couple shot" class="w-full h-full object-cover grayscale opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjm4nHt41q0qDVlZVftpl5Ws55A8fP1TPZJItnljA8UcYJpD7-zWNzz2ZBzf3MFwA3NwfNeH4vTUShPWySrcdgRU5Be1gDv8RI4irYJfgB6kKZ_NuslBtYDrS_bPAFaxzuwctQvPwk4sVngTBC_KHe2mWjlAJAyHfjWPxeM8and0byQCIRhOJCFyf2qOrvlksO9iCwDZQAWC-4z-z9T575EDVFokddCyhDpv26zAFWPxR1Wl58mWkobZBsWtORxlzMIpe_64T_wBw"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background"></div>
+</div>
+<div class="relative z-10 text-center px-margin-page flex flex-col items-center gap-stack-md max-w-4xl">
+<p class="font-accent-script text-accent-script text-tertiary-dim opacity-80 transform -rotate-2">...because some people become home</p>
+<h1 class="font-display-editorial text-display-editorial text-on-surface tracking-tighter leading-none">
+                    Open when you miss me
+                </h1>
+<div class="mt-stack-lg w-px h-24 bg-gradient-to-b from-primary to-transparent opacity-50"></div>
+</div>
+</section>
+<!-- The Letter -->
+<section class="py-stack-xl px-margin-page relative flex justify-center">
+<div class="absolute top-0 right-0 w-96 h-96 bg-tertiary-fixed-dim/5 rounded-full blur-[100px]"></div>
+<article class="paper-texture w-full max-w-3xl p-8 md:p-16 lg:p-24 rounded-sm relative z-10 transform rotate-1">
+<div class="absolute top-4 left-4 w-12 h-12 border-t border-l border-primary/20"></div>
+<div class="absolute bottom-4 right-4 w-12 h-12 border-b border-r border-primary/20"></div>
+<h2 class="font-accent-script text-4xl md:text-5xl text-primary mb-stack-lg opacity-90">My Love,</h2>
+<div class="space-y-stack-md font-body-lg text-body-lg text-on-surface/90 leading-relaxed">
+<p>
+                        If you're reading this, it means the distance feels a little too heavy today. I know that feeling. It's the quiet moments when the world slows down that I feel it too—the space where you should be.
+                    </p>
+<p class="text-2xl md:text-3xl font-headline-lg text-tertiary my-stack-lg italic text-center leading-tight">
+                        "You don't realize how much of my peace exists inside your voice."
+                    </p>
+<p>
+                        I wanted to leave this here for you, a small piece of my heart tucked away in the digital ether. Close your eyes and remember the last time we were just sitting together, saying nothing, yet understanding everything.
+                    </p>
+<p>
+                        Breathe. I am with you, even when I'm not.
+                    </p>
+</div>
+<div class="mt-stack-xl flex justify-end">
+<p class="font-accent-script text-3xl text-primary opacity-80">- Yours</p>
+</div>
+</article>
+</section>
+<!-- Memory Gallery (Asymmetrical) -->
+<section class="py-stack-xl px-margin-page relative">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter-editorial items-center">
+<div class="md:col-span-4 space-y-stack-md">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Fragments of Us</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Moments frozen in time, waiting for you to revisit them whenever the longing sets in.</p>
+</div>
+<div class="md:col-span-8 grid grid-cols-2 gap-8 relative mt-stack-lg md:mt-0">
+<!-- Polaroid 1 -->
+<div class="relative transform -rotate-3 hover:rotate-0 transition-transform duration-700 ease-out z-10 mt-12">
+<div class="bg-surface-variant p-4 pb-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<img alt="Candid memory" class="w-full aspect-[4/5] object-cover filter contrast-125 sepia-[.2]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTA4HRQoMOQalGihYmLUiEv1jV-0YBnrZyfNVYOTW036AkOe3nSynfhAtFbh2G0A4LZSUaKzki8X21XK2H_2nsu8mWB7q3HtrlBc82-_npfyz5W_Z-t5Ik4CdH8TzwuCNUsaSyGArk7H-64ErlsL_HAPXTtVlMdqnz3f02BiBw83B-wDegPt40lW4w8UOh685Eu0whjIGVD9ZGyqtbp83bf-ruUTDLau9aBExwM660P4LKMsEg05xj4CHHBgprCyzzFSiqLQin3vQ"/>
+<p class="absolute bottom-4 left-6 font-accent-script text-xl text-primary">our favorite nights</p>
+</div>
+</div>
+<!-- Polaroid 2 -->
+<div class="relative transform rotate-2 hover:-rotate-1 transition-transform duration-700 ease-out z-0">
+<div class="bg-surface-variant p-4 pb-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<img alt="Candid memory" class="w-full aspect-square object-cover grayscale contrast-150" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9lluhRSDnQ1m8GNnDe71z2Z5C5uzesjRy6LmUmC5Th9YCOu95Styxgkx3Tn2ZxZFwrynJS3xED6XqDuBdjACy0FFhCJuOvdo1YDfcPsDTtZ2zuwSvtXeuQIPkikBWxy7M-qYHQeXdN09MogMT5e2TUXX_iaq5ISEmQEdAbC5fjuJDyHIwEEh8ZvWpS-UoGiJnUl0NP7Wq8Nwzfc1yK12oPM7d1ux5RoyRK1PEvpGZ-967atH6W63BLIwcFj1p_-K8OG9Up9780AI"/>
+<p class="absolute bottom-4 left-6 font-accent-script text-xl text-primary">quiet moments</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Video/Audio Memory Container -->
+<section class="py-stack-xl relative w-full overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Atmospheric background" class="w-full h-full object-cover blur-sm opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADzv7K79BXYggpspD1Au40znu0KoO_IrZIdVG1EaZvqL897ZEVRSDZ_kQSzVEkAc35H-Zh-MjK28Vmlm1FOqiO-z3ulST_2Lbvo-5DjSZhoM5qwYmAfdUAaX2JEdZqEf7t-xahoziLLfLktRoy28Kf4KeCJoxxRRPY3XNH5yfy19Kw-ZO8Glv6VO0qYu6qiwrELsXh-Z57KgOUCuNco_kiIrS1GVGsN17EJttFfmLHjgVoT3X2TysR5cICRs_eLTINeO0J4sLpbRU"/>
+<div class="absolute inset-0 bg-background/60"></div>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-margin-page flex flex-col items-center text-center">
+<h3 class="font-headline-lg text-4xl md:text-5xl text-on-surface mb-stack-lg italic opacity-80">
+                    "Even silence felt beautiful with you."
+                </h3>
+<!-- Audio Player -->
+<div class="glass-panel w-full max-w-md p-6 rounded-2xl flex items-center gap-6 mt-stack-md shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+<button class="w-16 h-16 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="flex-1">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2 text-left">A message for tonight</p>
+<div class="h-8 flex items-center gap-1 opacity-50">
+<!-- Simulated Waveform -->
+<div class="w-1 h-3 bg-primary rounded-full"></div>
+<div class="w-1 h-6 bg-primary rounded-full"></div>
+<div class="w-1 h-4 bg-primary rounded-full"></div>
+<div class="w-1 h-8 bg-primary rounded-full"></div>
+<div class="w-1 h-5 bg-primary rounded-full"></div>
+<div class="w-1 h-2 bg-primary rounded-full"></div>
+<div class="w-1 h-7 bg-primary rounded-full"></div>
+<div class="w-1 h-4 bg-primary rounded-full"></div>
+<div class="w-1 h-3 bg-primary rounded-full"></div>
+<div class="w-1 h-6 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Emotional Ending -->
+<section class="h-[819px] flex items-center justify-center relative overflow-hidden bg-background">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 z-0"></div>
+<div class="relative z-10 text-center px-margin-page max-w-3xl">
+<p class="font-display-editorial text-4xl md:text-6xl text-on-surface leading-tight tracking-tight opacity-90">
+                    And no matter where life takes us...
+                </p>
+<p class="font-accent-script text-3xl md:text-5xl text-tertiary mt-stack-md opacity-80">
+                    You will always have a place in my heart.
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface w-full py-stack-lg border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center px-margin-page gap-stack-md relative z-10">
+<div class="font-accent-script text-accent-script text-primary">Open When...</div>
+<div class="flex gap-stack-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Archive</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">Contact</a>
+</div>
+<div class="font-body-sm text-body-sm text-secondary dark:text-secondary text-on-surface-variant">
+            © 2024 Open When... A Digital Heirloom.
+        </div>
+</footer>
+</body></html>

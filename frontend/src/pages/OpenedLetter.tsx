@@ -64,10 +64,10 @@ export default function OpenedLetter() {
           subtitle: data.subtitle,
           message: data.message,
           emotionalQuote: data.emotionalQuote || "\"You don't realize how much of my peace exists inside your voice.\"",
-          heroImage: data.heroImage || "https://lh3.googleusercontent.com/aida-public/AB6AXuC1oshTdSlU9YsFAKsxnUMCAKPBfPJk5q78s8UuQM24p_lWXnrlQujpJSvNHZZSo2XkKSJU9WF-OFhnndz4wTP3XFZgZ4MoiNAStAs35S687G7kCxcL84nleixQeQOPLBiA2u61vqz71l87jamRduVIFgx37VMcUm7ZaO4VijKpWFLocRHvDgmgRasODMA-BNyLcJ_4zeToHcXn1wGVploGyGmm4k0_8nqfjxLWffcGbkCVOaY6hUMXT57dVZFbAbmExl2FBvsXK-U",
+          heroImage: data.heroImage || "https://lh3.googleusercontent.com/aida-public/AB6AXuCK8jVGcZye3eDWP624NdjP438zJZM2B3LvzdMdE0jWYl9hPSNtKEeRf4Bi8CQAYG93gi2_LaxrUdx0SOFyDj7AretKK85Tpk2ZfZWIG9BisT9OJghH_nr7OuqF2dvMpX5L8xzPqtJDvF8g6bmSlfkras0RyW2UMwV6uWxFtnvMSAHB_00ukJ-jjZP5YXABftGCreFCSdNBR5_5dv0LXemYPQFqRUYFPQzCcVLcDjDjTdcpK_vmJA8KXwPZTyEm8Z5bj41zZbl1YbQ",
           galleryImages: [
-            data.galleryImages?.[0] || "https://lh3.googleusercontent.com/aida-public/AB6AXuDG_KdgGvu2YLL0ZD8ld_A_W7tiOdPvKy-__bSf0Wf2CbXmsYJbOAD6QhbPeLs0-i6tn8w1uXDIKJ_Zeim53NRKcLs0LvYHSc9OiTjXeaUraPvGKT1-2SKdEfcaJPurJL-4ySMfLhW4jj9VrJmvyKwi9K-go2wfxeJknokw77DUMAXvlfszKzekoVGzDX2ECKr9dis5UhdX_venIT-cvItNEdbKZSFmljE1Ci8kBLMCrHQAen_mWmxB9CBua-O_8j2BoA6vFG_buqE",
-            data.galleryImages?.[1] || "https://lh3.googleusercontent.com/aida-public/AB6AXuAE8DZ2VAyEEwDdVZmUuC0jLADa2zIhG8kiB5vepUHHGiLGWq6uL-pfARRdggoVuWT64Q9Tapmu0Xddn44Ms_lzclfPQ6XipHHZcobvWLzmUa4XeZXvuYZCD3_EOoiDs_wwMiq53zrnvmM54c4_YVSFi-TTG7kgw8EIshiKVYYJGGL6lXaOYVla3MzjdzYfBdJ7B7q4F-S6-t4XR5DKolmu6MmxvV4dFkimjt-EKTLbRKZhT8QEQWjZFvYiu72rhHiaFaLX2fLfgVk"
+            data.galleryImages?.[0] || "https://lh3.googleusercontent.com/aida-public/AB6AXuAYUaa3jkHe2Sjv1CgakMozr3mnOMjzPrM3fRO_yKIfpAZbjcJtq7JJJPGyxEDdyH4ObCd2lkiqMnHDPGa_-8DjWy7F-gmG-p9MLZHcVD2ClW3UofCk6SGFATRx_L9z1nuQFY4UTxcS3iCiZmG0qvRpE2bBRbufR1o7PSwCQH6BpYZehMeSrxNe2GAL5EHXZr8KMIrJNKmgyD3gyydHCj2pPtpJxXOJVaQM5d340iRqRxI3dhH8nEo4pvWqSpPsr1wt5mjn_tnfpKU",
+            data.galleryImages?.[1] || "https://lh3.googleusercontent.com/aida-public/AB6AXuDMLPhes4rjYQsK9qwFRleiNCdcLGtLdGa3c93y-nhK86Ids3yzL9hsfx6ccKCgsN_1PFwGphIp_UtCQm8aUXgXlfwxMZ742Dbj_xe-nnnGlMKfJQEx5GQBGWlA6ZOCFHL3liwyy5qUag4GtO4fyBuYDpFwF5qlkdT29PDJ-HJ5xA8bVKdPitMSOccMaKkrsUfZYGsLxQ5ou8aSlLyEYxYKapb6ywWv9QXtI8awERENr8XDIA6rh2KYgmTrVrm1F-UHGawd_zGMif4"
           ],
           galleryTexts: [
             data.galleryTexts?.[0] || "our favorite drive",

@@ -1,12 +1,13 @@
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import letterRoutes from './routes/letters';
 import authRoutes from './routes/auth';
 import uploadRoutes from './routes/upload';
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -40,7 +41,6 @@ app.use('/api/letters', letterRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/upload', uploadRoutes);
 
-import path from 'path';
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Basic route

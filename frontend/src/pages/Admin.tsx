@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
+import { resolveImage } from '../utils/offlineImages';
 
 interface Letter {
   _id: string;
@@ -65,7 +66,7 @@ function ImageUploadSlot({
       <p className="font-label-caps text-[9px] tracking-[0.2em] text-[#eae1d6]/30 mb-2">{label}</p>
       {value ? (
         <div className="relative group/img w-full h-28">
-          <img src={value} alt={label} className="w-full h-full object-cover opacity-70" />
+          <img src={resolveImage(value)} alt={label} className="w-full h-full object-cover opacity-70" />
           <button type="button" onClick={() => onChange('')}
             className="absolute top-1 right-1 bg-black/70 text-red-400 text-xs px-2 py-0.5 opacity-0 group-hover/img:opacity-100 transition-opacity">
             ✕

@@ -103,7 +103,19 @@ export default function Login() {
             className="w-full max-w-sm space-y-8"
           >
             {error && (
-              <p className="font-label-caps text-xs tracking-widest text-red-500/70 text-center">{error}</p>
+              <div className="space-y-2 text-center">
+                <p className="font-label-caps text-xs tracking-widest text-red-500/70">{error}</p>
+                <div className="p-3 bg-[#2B1E1E]/40 border border-[#C5A059]/20 rounded-md backdrop-blur-sm">
+                  <span className="font-accent-script text-base text-[#C5A059]/90 block">
+                    {mode === 'girlfriend' 
+                      ? 'Hint: Use your lovely name "Purva"' 
+                      : 'Hint: Use your Admin ID "Pulkit_loves_Purva"'}
+                  </span>
+                  <span className="block font-body-sm text-[11px] text-[#eae1d6]/50 italic mt-1">
+                    Your password: Purvapulkit@03
+                  </span>
+                </div>
+              </div>
             )}
 
             <div className="border-b border-[#C5A059]/30 pb-2">
@@ -169,7 +181,17 @@ export default function Login() {
 
             <form onSubmit={handleLogin} className="space-y-8 bg-[#16130d] border border-[#C5A059]/10 p-8">
               {error && (
-                <p className="font-label-caps text-xs tracking-widest text-red-500/70 text-center">{error}</p>
+                <div className="space-y-2 text-center">
+                  <p className="font-label-caps text-xs tracking-widest text-red-500/70">{error}</p>
+                  <div className="p-3 bg-[#2B1E1E]/40 border border-[#C5A059]/20 rounded-md backdrop-blur-sm">
+                    <span className="font-accent-script text-base text-[#C5A059]/90 block">
+                      Hint: Use Admin ID "Pulkit_loves_Purva"
+                    </span>
+                    <span className="block font-body-sm text-[11px] text-[#eae1d6]/50 italic mt-1">
+                      Your password: Purvapulkit@03
+                    </span>
+                  </div>
+                </div>
               )}
 
               <div className="border-b border-[#C5A059]/20 pb-2">
