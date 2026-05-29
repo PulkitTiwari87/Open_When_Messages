@@ -59,26 +59,30 @@ export default function OpenedLetter() {
           return;
         }
 
-        // Helper to hash a string to a deterministic index
-        const getDeterministicIndex = (str: string, max: number, offset = 0) => {
+        const getHash = (str: string) => {
           let hash = 0;
           for (let i = 0; i < str.length; i++) {
             hash = str.charCodeAt(i) + ((hash << 5) - hash);
+            hash = hash | 0;
           }
-          return Math.abs(hash + offset) % max;
+          return Math.abs(hash);
+        };
+
+        let seed = getHash(data.slug || 'letter');
+        const nextRandom = () => {
+          seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+          return seed;
         };
 
         const totalOffline = OFFLINE_IMAGES.length;
         const indices: number[] = [];
-        let offset = 0;
         let attempts = 0;
-        // Find 3 unique offline images
+        // Find 3 unique offline images using LCG (upper 15 bits for high entropy)
         while (indices.length < 3 && totalOffline > 0 && attempts < 100) {
-          const idx = getDeterministicIndex(data.slug || 'letter', totalOffline, offset);
+          const idx = (nextRandom() >> 16) % totalOffline;
           if (!indices.includes(idx)) {
             indices.push(idx);
           }
-          offset += 7; // Use coprime number to generate distinct jumps
           attempts++;
         }
 
@@ -91,18 +95,31 @@ export default function OpenedLetter() {
         const defaultGoogleG1 = "https://lh3.googleusercontent.com/aida-public/AB6AXuAYUaa3jkHe2Sjv1CgakMozr3mnOMjzPrM3fRO_yKIfpAZbjcJtq7JJJPGyxEDdyH4ObCd2lkiqMnHDPGa_-8DjWy7F-gmG-p9MLZHcVD2ClW3UofCk6SGFATRx_L9z1nuQFY4UTxcS3iCiZmG0qvRpE2bBRbufR1o7PSwCQH6BpYZehMeSrxNe2GAL5EHXZr8KMIrJNKmgyD3gyydHCj2pPtpJxXOJVaQM5d340iRqRxI3dhH8nEo4pvWqSpPsr1wt5mjn_tnfpKU";
         const defaultGoogleG2 = "https://lh3.googleusercontent.com/aida-public/AB6AXuDMLPhes4rjYQsK9qwFRleiNCdcLGtLdGa3c93y-nhK86Ids3yzL9hsfx6ccKCgsN_1PFwGphIp_UtCQm8aUXgXlfwxMZ742Dbj_xe-nnnGlMKfJQEx5GQBGWlA6ZOCFHL3liwyy5qUag4GtO4fyBuYDpFwF5qlkdT29PDJ-HJ5xA8bVKdPitMSOccMaKkrsUfZYGsLxQ5ou8aSlLyEYxYKapb6ywWv9QXtI8awERENr8XDIA6rh2KYgmTrVrm1F-UHGawd_zGMif4";
 
+        const isDefaultImage = (url?: string) => {
+          if (!url) return true;
+          const resolved = resolveImage(url);
+          return (
+            resolved === '/img_20260402_wa0003.jpg' ||
+            resolved === '/img_20260401_wa0069.jpg' ||
+            resolved === '/img_20260401_wa0089.jpg' ||
+            url === defaultGoogleHero ||
+            url === defaultGoogleG1 ||
+            url === defaultGoogleG2
+          );
+        };
+
         // Determine final images
-        const heroImage = (data.heroImage && data.heroImage !== defaultGoogleHero)
-          ? resolveImage(data.heroImage)
-          : fallbackHero;
+        const heroImage = isDefaultImage(data.heroImage)
+          ? fallbackHero
+          : resolveImage(data.heroImage);
 
-        const g1 = (data.galleryImages?.[0] && data.galleryImages[0] !== defaultGoogleG1)
-          ? resolveImage(data.galleryImages[0])
-          : fallbackG1;
+        const g1 = isDefaultImage(data.galleryImages?.[0])
+          ? fallbackG1
+          : resolveImage(data.galleryImages[0]);
 
-        const g2 = (data.galleryImages?.[1] && data.galleryImages[1] !== defaultGoogleG2)
-          ? resolveImage(data.galleryImages[1])
-          : fallbackG2;
+        const g2 = isDefaultImage(data.galleryImages?.[1])
+          ? fallbackG2
+          : resolveImage(data.galleryImages[1]);
         
         // Map backend data to local state or use defaults if missing
         setLetter({

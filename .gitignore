@@ -39,3 +39,6 @@ Desktop.ini
 
 # Local media uploads / temp storage
 backend/uploads/
+
+# Scratch folder
+scratch/
