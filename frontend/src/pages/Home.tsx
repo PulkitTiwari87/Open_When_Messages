@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import HomeImage from '../public/Home.jpg';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ export default function Home() {
         <img 
           alt="A dramatic, high-contrast black and white photograph of a couple in a cinematic, moody setting." 
           className="w-full h-full object-cover opacity-45 mix-blend-luminosity scale-105 filter grayscale contrast-125 brightness-75" 
-          src={HomeImage} 
+          src="/Home.jpg" 
         />
         {/* Cinematic black and white overlay */}
         <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
