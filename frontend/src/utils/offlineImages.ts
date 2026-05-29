@@ -141,11 +141,11 @@ export const OFFLINE_IMAGES: OfflineImage[] = [
   },
   {
     id: 17,
-    filename: 'IMG-20260402-WA0087.jpg',
-    path: '/IMG-20260402-WA0087.jpg',
-    title: 'Silent Streets',
+    filename: 'IMG-20260402-WA0081.jpg',
+    path: '/IMG-20260402-WA0081.jpg',
+    title: 'Warm Shadows',
     date: 'May 2026',
-    caption: 'Walking together on silent city streets.'
+    caption: 'Warm shadows and whispers on a Sunday.'
   },
   {
     id: 18,
