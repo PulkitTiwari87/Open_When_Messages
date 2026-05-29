@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
+import { OFFLINE_IMAGES, resolveImage } from '../utils/offlineImages';
 
 interface LetterData {
   title: string;
@@ -57,6 +58,51 @@ export default function OpenedLetter() {
           navigate('/letters');
           return;
         }
+
+        // Helper to hash a string to a deterministic index
+        const getDeterministicIndex = (str: string, max: number, offset = 0) => {
+          let hash = 0;
+          for (let i = 0; i < str.length; i++) {
+            hash = str.charCodeAt(i) + ((hash << 5) - hash);
+          }
+          return Math.abs(hash + offset) % max;
+        };
+
+        const totalOffline = OFFLINE_IMAGES.length;
+        const indices: number[] = [];
+        let offset = 0;
+        let attempts = 0;
+        // Find 3 unique offline images
+        while (indices.length < 3 && totalOffline > 0 && attempts < 100) {
+          const idx = getDeterministicIndex(data.slug || 'letter', totalOffline, offset);
+          if (!indices.includes(idx)) {
+            indices.push(idx);
+          }
+          offset += 7; // Use coprime number to generate distinct jumps
+          attempts++;
+        }
+
+        const fallbackHero = OFFLINE_IMAGES[indices[0]]?.path || "/Home.jpg";
+        const fallbackG1 = OFFLINE_IMAGES[indices[1]]?.path || OFFLINE_IMAGES[indices[0]]?.path || "/Home.jpg";
+        const fallbackG2 = OFFLINE_IMAGES[indices[2]]?.path || OFFLINE_IMAGES[indices[0]]?.path || "/Home.jpg";
+
+        // Constants matching the hardcoded Google Photos placeholders
+        const defaultGoogleHero = "https://lh3.googleusercontent.com/aida-public/AB6AXuCK8jVGcZye3eDWP624NdjP438zJZM2B3LvzdMdE0jWYl9hPSNtKEeRf4Bi8CQAYG93gi2_LaxrUdx0SOFyDj7AretKK85Tpk2ZfZWIG9BisT9OJghH_nr7OuqF2dvMpX5L8xzPqtJDvF8g6bmSlfkras0RyW2UMwV6uWxFtnvMSAHB_00ukJ-jjZP5YXABftGCreFCSdNBR5_5dv0LXemYPQFqRUYFPQzCcVLcDjDjTdcpK_vmJA8KXwPZTyEm8Z5bj41zZbl1YbQ";
+        const defaultGoogleG1 = "https://lh3.googleusercontent.com/aida-public/AB6AXuAYUaa3jkHe2Sjv1CgakMozr3mnOMjzPrM3fRO_yKIfpAZbjcJtq7JJJPGyxEDdyH4ObCd2lkiqMnHDPGa_-8DjWy7F-gmG-p9MLZHcVD2ClW3UofCk6SGFATRx_L9z1nuQFY4UTxcS3iCiZmG0qvRpE2bBRbufR1o7PSwCQH6BpYZehMeSrxNe2GAL5EHXZr8KMIrJNKmgyD3gyydHCj2pPtpJxXOJVaQM5d340iRqRxI3dhH8nEo4pvWqSpPsr1wt5mjn_tnfpKU";
+        const defaultGoogleG2 = "https://lh3.googleusercontent.com/aida-public/AB6AXuDMLPhes4rjYQsK9qwFRleiNCdcLGtLdGa3c93y-nhK86Ids3yzL9hsfx6ccKCgsN_1PFwGphIp_UtCQm8aUXgXlfwxMZ742Dbj_xe-nnnGlMKfJQEx5GQBGWlA6ZOCFHL3liwyy5qUag4GtO4fyBuYDpFwF5qlkdT29PDJ-HJ5xA8bVKdPitMSOccMaKkrsUfZYGsLxQ5ou8aSlLyEYxYKapb6ywWv9QXtI8awERENr8XDIA6rh2KYgmTrVrm1F-UHGawd_zGMif4";
+
+        // Determine final images
+        const heroImage = (data.heroImage && data.heroImage !== defaultGoogleHero)
+          ? resolveImage(data.heroImage)
+          : fallbackHero;
+
+        const g1 = (data.galleryImages?.[0] && data.galleryImages[0] !== defaultGoogleG1)
+          ? resolveImage(data.galleryImages[0])
+          : fallbackG1;
+
+        const g2 = (data.galleryImages?.[1] && data.galleryImages[1] !== defaultGoogleG2)
+          ? resolveImage(data.galleryImages[1])
+          : fallbackG2;
         
         // Map backend data to local state or use defaults if missing
         setLetter({
@@ -64,11 +110,8 @@ export default function OpenedLetter() {
           subtitle: data.subtitle,
           message: data.message,
           emotionalQuote: data.emotionalQuote || "\"You don't realize how much of my peace exists inside your voice.\"",
-          heroImage: data.heroImage || "https://lh3.googleusercontent.com/aida-public/AB6AXuCK8jVGcZye3eDWP624NdjP438zJZM2B3LvzdMdE0jWYl9hPSNtKEeRf4Bi8CQAYG93gi2_LaxrUdx0SOFyDj7AretKK85Tpk2ZfZWIG9BisT9OJghH_nr7OuqF2dvMpX5L8xzPqtJDvF8g6bmSlfkras0RyW2UMwV6uWxFtnvMSAHB_00ukJ-jjZP5YXABftGCreFCSdNBR5_5dv0LXemYPQFqRUYFPQzCcVLcDjDjTdcpK_vmJA8KXwPZTyEm8Z5bj41zZbl1YbQ",
-          galleryImages: [
-            data.galleryImages?.[0] || "https://lh3.googleusercontent.com/aida-public/AB6AXuAYUaa3jkHe2Sjv1CgakMozr3mnOMjzPrM3fRO_yKIfpAZbjcJtq7JJJPGyxEDdyH4ObCd2lkiqMnHDPGa_-8DjWy7F-gmG-p9MLZHcVD2ClW3UofCk6SGFATRx_L9z1nuQFY4UTxcS3iCiZmG0qvRpE2bBRbufR1o7PSwCQH6BpYZehMeSrxNe2GAL5EHXZr8KMIrJNKmgyD3gyydHCj2pPtpJxXOJVaQM5d340iRqRxI3dhH8nEo4pvWqSpPsr1wt5mjn_tnfpKU",
-            data.galleryImages?.[1] || "https://lh3.googleusercontent.com/aida-public/AB6AXuDMLPhes4rjYQsK9qwFRleiNCdcLGtLdGa3c93y-nhK86Ids3yzL9hsfx6ccKCgsN_1PFwGphIp_UtCQm8aUXgXlfwxMZ742Dbj_xe-nnnGlMKfJQEx5GQBGWlA6ZOCFHL3liwyy5qUag4GtO4fyBuYDpFwF5qlkdT29PDJ-HJ5xA8bVKdPitMSOccMaKkrsUfZYGsLxQ5ou8aSlLyEYxYKapb6ywWv9QXtI8awERENr8XDIA6rh2KYgmTrVrm1F-UHGawd_zGMif4"
-          ],
+          heroImage,
+          galleryImages: [g1, g2],
           galleryTexts: [
             data.galleryTexts?.[0] || "our favorite drive",
             data.galleryTexts?.[1] || "quiet mornings"
